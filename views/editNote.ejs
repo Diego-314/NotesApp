@@ -1,0 +1,32 @@
+<%-include('./parcials/header')%>
+<form method="post" action="" id="formId">
+	<center>
+	<legend>Edita una nota</legend>
+	<div class="form-group">
+			<input required type="text" name="title" class="form-control" placeholder="Título" value="<%= nota.title %>" maxlength="30">
+			<br>
+			<textarea required name="body" class="form-control" placeholder="Cuerpo" maxlength="500"><%= nota.body %></textarea>
+			<br>
+			<button type="submit" class="btn btn-primary" id="btn">Completar</button>
+		</div>
+	</center>
+</form>
+
+<script type="text/javascript">
+	
+	let form = document.getElementById('formId');
+	let btn = document.getElementById('btn');
+
+
+	btn.addEventListener('click', e => {
+		form.setAttribute('action', `/editNote-2?email=<%= email%>&title=<%= nota.title%>&body=<%= nota.body%>`)
+	});
+
+	//form.addEventListener('submit', e => {e.preventDefault()})
+
+
+
+
+</script>
+
+<%-include('./parcials/footer')%>

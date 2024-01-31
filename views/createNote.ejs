@@ -1,0 +1,16 @@
+<%-include('./parcials/header')%>
+
+<form method="post" action="/createNote?email=<%= email %>" class="p-4">
+	<center>
+	<legend>Crea una nota</legend>
+	<div class="form-group">
+		<input required type="text" name="title" class="form-control" placeholder="Título" maxlength="30">
+		<br>
+		<textarea required name="body" class="form-control" placeholder="Cuerpo" maxlength="500"></textarea>
+		<br>
+		<button class="btn btn-primary">Crear</button>
+	</div>
+	</center>
+</form>
+
+<%-include('./parcials/footer')%>

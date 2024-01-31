@@ -1,0 +1,18 @@
+<%-include('./parcials/header')%>
+
+<form method="post" action="/signup" class="p-4" class="needs validation">
+	<center>
+	<legend>Registro</legend>
+	<div class="form-group">
+		<input required type="text" name="user" class="form-control" placeholder="Nombre de usuario">
+		<br>
+		<input required type="text" name="emailAddress" class="form-control" placeholder="Dirección e-mail">
+		<br>
+		<input required type="password" name="password" class="form-control" placeholder="Contraseña">
+		<br>
+		<button class="btn btn-primary">Completar</button>
+	</div>
+	</center>
+</form>
+
+<%-include('./parcials/footer')%>

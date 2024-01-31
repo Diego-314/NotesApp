@@ -1,0 +1,25 @@
+<%-include('./parcials/header')%>
+
+<form method="post" action="/login" class="p-4">
+	<center>
+	<legend>Iniciar sesión</legend>
+	<div class="form-group">
+		<input required type="text" name="emailAddress" class="form-control" placeholder="Dirección e-mail">
+		<br>
+		<input required type="password" name="password" class="form-control" placeholder="Contraseña">
+		<br>
+		<button class="btn btn-primary">Ingresar</button>
+	</div>
+	</center>
+</form>
+
+<br><br>
+
+<center>
+	<a href="/signup">
+			<p>¿No tienes una cuenta? Crea una</p>
+	</a>
+</center>
+
+<%-include('./parcials/footer')%>
+

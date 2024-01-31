@@ -1,0 +1,88 @@
+<%-include('./parcials/header')%>
+
+<br>
+<form id="formId" action="" method="post">
+<div style="text-align: center;">
+	<div style="display: inline;"><button type="button" class="btn btn-primary" id="returnBtn">Volver al menú principal</button></div>
+	<div style="display: inline;"><button type="button" class="btn btn-primary" id="newNoteBtn">Nueva nota</button></div>
+</div>
+
+<div style="display:inline; text-align: center;">
+
+
+
+	<%	for (let i = 0; i < notes.length; i++) { %>
+
+		
+
+	
+  			<div class="modal-dialog" style="width: 350px">
+    			<div class="modal-content">
+      				<div class="modal-header" style="margin: auto;">
+        				<h5 class="modal-title"> <%= notes[i].title  %> </h5>
+      				</div>
+      				<div class="modal-body">
+        				<p><%= notes[i].body  %></p>
+      				</div>
+      				<div class="modal-footer">
+        					<button type="button" class="btn btn-primary" id="edit~~<%= notes[i].title%>">Editar</button>
+        					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="delete~~<%= notes[i].title%>">Borrar</button>
+     				</div>
+    			</div>
+  			</div>
+ 
+		
+
+
+	
+
+
+	<%  } %>
+</form>
+
+<script type="text/javascript">
+	
+
+let buttons = document.querySelectorAll('button');
+let form = document.getElementById('formId');
+console.log('<%=email%>')
+buttons.forEach(btn => {
+	btn.addEventListener('click', e => {
+		let id = e.target.id;
+		if (id == 'newNoteBtn') 
+			{
+				form.setAttribute('method', 'get');
+				form.setAttribute('action', "/createNote/<%= email%>")
+				form.submit()
+				
+			} else {
+				if (id == 'returnBtn') 
+					{
+						form.setAttribute('method', 'get');
+						form.setAttribute('action', "/")
+						form.submit()
+					};
+				let array = id.split('~~');
+				if (array[0] === 'delete') 
+					{
+						form.setAttribute('method', 'post')
+						form.setAttribute('action', `/deleteNote?email=<%= email%>&nota=${array[1]}`)
+						form.submit()
+					};
+				if (array[0] === 'edit') 
+					{
+						form.setAttribute('method', 'post')
+						form.setAttribute('action', `/editNote?email=<%= email%>&nota=${array[1]}`)
+						form.submit()
+					};
+			};
+	});
+});
+
+form.addEventListener('submit', e => {
+	e.preventDefault()
+});
+
+
+</script>
+<%-include('./parcials/footer')%>

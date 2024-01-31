@@ -1,0 +1,26 @@
+{
+  "name": "notesappv2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dbtoken": "mongodb+srv://AyaAya:yjIUOFUNct75aQSM@hitagibot.dsrxwp1.mongodb.net/NotesApp",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mime": "^3.0.0",
+    "mongoose": "^7.4.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@flydotio/dockerfile": "^0.4.0",
+    "nodemon": "^3.0.1"
+  }
+}
